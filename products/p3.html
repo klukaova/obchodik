@@ -22,6 +22,55 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
+
+var page = " home ";
+window.Tawk_API.onLoad = function(){
+        console.log(Date.now() + page + "load");
+};
+
+window.Tawk_API.onChatMaximized = function(){
+    console.log(Date.now() + page + "max");
+};
+
+window.Tawk_API.onChatMinimized = function(){
+     console.log(Date.now() + page + "min");
+};
+
+window.Tawk_API.onChatStarted = function(){
+    console.log(Date.now() + page + "chat_start");
+};
+
+window.Tawk_API.onChatEnded = function(){
+    console.log(Date.now() + page + "chat_end");
+};
+
+window.Tawk_API.onChatMessageVisitor = function(message){
+    console.log(Date.now() + page + "visitor " + message)
+};
+
+window.Tawk_API.onChatMessageAgent = function(message){
+    console.log(Date.now() + page + "agent " + message)
+
+    switch (message) {
+       case "qqq":
+           window.location.href = "products/p1.html";
+           break;
+       case "www":
+           window.location.href = "products/p2.html";
+           break;
+       case "eee":
+           window.location.href = "products/p3.html";
+           break;
+    }
+};
+
+window.Tawk_API.onChatMessageSystem = function(message){
+    console.log(Date.now() + page + "system " + message)
+};
+
+window.Tawk_API.onVisitorNameChanged = function(visitorName){
+    console.log(Date.now() + page + "visitor_name " + visitorName)
+};
 </script>
 <!--End of Tawk.to Script-->
 </body>
