@@ -2,14 +2,28 @@
 <html lang="sk" itemscope itemtype="http://schema.org/WebPage">
 <head>
 <meta charset="utf-8">
+
+    <script type="application/javascript">
+	document.addEventListener("click", customLogger);
+
+	function customLogger(event) {
+      const namedParentElement = event.target.closest('[data-label]');
+      if (namedParentElement != null){
+          console.log('click ' + namedParentElement.getAttribute('data-label'));
+        }
+      else {
+          console.log("redundant click");
+      }
+	}
+</script>
 </head>
 <body>
 <h1>Produkt 2</h1>
 <h2>Podobne produkty</h2>
-<a href="p1.html">Produkt 1</a>
-<a href="p3.html">Produkt 3</a>
+<a href="p1.html" data-label="produkt-1">Produkt 1</a>
+<a href="p3.html" data-label="produkt-2">Produkt 3</a>
 <h2></h2>
-<a href="../home.html">Spat</a>
+<a href="../home.html" data-label="home">Home</a>
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
