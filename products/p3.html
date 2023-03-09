@@ -37,9 +37,30 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 
-var page = " products/p3 ";
+const page = " products/p3 ";
 window.Tawk_API.onLoad = function(){
         console.log(Date.now() + page + "load");
+};
+
+window.Tawk_API.onTagsUpdated = function(data){
+    const tag = data["tags"][data["tags"].length - 1];
+    console.log(Date.now() + page + "tag-update " + tag);
+    window.Tawk_API.removeTags([tag], function(error){
+        console.log(error);
+    });
+    window.location.href = "p2.html";
+
+    switch (tag) {
+       case "1":
+           window.location.href = "p1.html";
+           break;
+       case "2":
+           window.location.href = "p2.html";
+           break;
+       case "3":
+           window.location.href = "p3.html";
+           break;
+    }
 };
 
 window.Tawk_API.onChatMaximized = function(){
